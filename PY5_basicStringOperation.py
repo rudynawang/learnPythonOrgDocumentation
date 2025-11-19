@@ -10,4 +10,12 @@ print(len(str))
 astring = "Hello world!"
 print(astring.index('o'))
 
+### Trying
+mylist = ["ram", "shyam", "hari", "rud"]
+print(mylist.index("hari"))
+print(len(mylist))
+print(len(mylist[0]))
+
+# Counting the same character in the string
+print(mylist[3].count("r"))
 
