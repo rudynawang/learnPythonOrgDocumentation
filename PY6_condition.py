@@ -23,3 +23,30 @@ if name == "Hari" or name == "Shyam":
 else:
     print("Name is neither 'Ram' nor 'Hari'")
 
+#3. The 'in' operator
+num1 = 3
+nums = [1,2,3]
+if num1 in nums:
+    print("number exits in the list")
+else:
+    print("number does not exist in the list")
+
+
+num = 2
+if num < 0:
+    print("number is negative")
+elif num > 0:
+    print("number is positive")
+else:
+    print("number equals to Zero")
+
+
+st1 = False
+st2 = True
+if st1 is True:
+    print("st1 is True")
+elif st2 is True:
+    print("st2 is True")
+else:
+    print("Neither st1 nor st2 is True")
+    
