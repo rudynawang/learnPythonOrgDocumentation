@@ -1,4 +1,5 @@
-#1. Boolean Value/ Boolean Logic/ Boolean Logic Value -> {True, False}
+#1. Boolean Value = {True, False/ 1,0 / Yes,No / On,Off}
+#   Boolean Logic = {(AND/^),(OR/v),(NOT/¬)}
 x=3
 print(x==3) # x is equal to 3 (True)
 print(x==5) # x is equal to 5 (False)

@@ -1,0 +1,89 @@
+Important special case: None Always use is with None: x = None if x is None: print("x is None") I want to understand this case because I have an example statement = False another_statement = True if statement is True: # do something pass elif another_statement is True: # else if # do something else pass else: # do another thing pass In this example I am thinking that "is" operator is working as double equal operator because the value of "statement" is "True" and this variable is comparing with value "True"
+
+Ah! I see exactly what’s confusing you — this is a very common beginner pitfall in Python. Let’s go step by step.
+
+1️⃣ The is operator vs ==
+Operator	Checks	Example
+==	Value equality	5 == 5 → True, [1,2] == [1,2] → True
+is	Identity (same object)	a is b → True only if a and b are the exact same object in memory
+2️⃣ Why is works with None
+
+None is a singleton in Python.
+
+This means there is exactly one instance of None in the entire program.
+
+So using is is safe and correct:
+
+x = None
+
+if x is None:  # ✅ Correct
+    print("x is None")
+
+
+You could write if x == None, but it’s bad practice.
+
+Using is avoids subtle bugs if a class defines a custom __eq__ method.
+
+3️⃣ Why using is with True or False is risky
+statement = False
+another_statement = True
+
+if statement is True:
+    pass
+elif another_statement is True:
+    pass
+else:
+    pass
+
+
+Here you are using is with boolean literals, not None.
+
+Python True and False are singleton objects, so is might sometimes work.
+
+✅ But it’s not guaranteed in all cases (e.g., if booleans come from expressions or function returns).
+
+Correct way:
+if statement == True:  # compares **value**, safe
+    pass
+elif another_statement == True:
+    pass
+
+
+Or even better, because statement is already boolean:
+
+if statement:  # same as statement == True
+    pass
+elif another_statement:  # same as another_statement == True
+    pass
+else:
+    pass
+
+
+No need to write == True at all
+
+This is the Pythonic way to check boolean variables.
+
+4️⃣ Key takeaway
+
+is → check identity, mostly used for None
+
+== → check value equality, use for numbers, strings, lists, or booleans
+
+For booleans, the cleanest way is just:
+
+if statement:  # True?
+if not statement:  # False?
+
+Example illustrating the problem
+def returns_true():
+    return 1 == 1  # returns True value
+
+x = returns_true()
+
+print(x == True)  # True — value comparison ✅
+print(x is True)  # Might be False — identity ❌
+
+
+So is does not behave like == in general for booleans. It only works reliably with None.
+
+If you want, I can make a tiny diagram showing is vs == vs if statement: specifically for booleans and None, which makes this crystal clear.

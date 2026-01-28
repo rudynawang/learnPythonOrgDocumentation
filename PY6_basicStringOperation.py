@@ -25,26 +25,29 @@ print(astring[3])     #prints only "l"
 print(astring[3:8])   #prints "lo wo"
 print(astring[:7])    #prints "Hello w"
 print(astring[2:])    #prints "llo world!"
-
+print()
 print(astring[-3])    # (-ve) number leads starting from the end of the string and -3 denote third character starting from the end of the string
 print(astring[-3:])   # prints from third character from the end to the end of the string
 print(astring[:-3])   # prints from very begining of the string to the position one less than the number mention in the index i.e upto -4th position character form the end 
-print(astring[-1:-8]) # XXX doesnot print anything / doesn't work
+print(astring[-1:-8],astring) # XXX doesnot print anything / doesn't work
 print(astring[-8:-3]) # prints the slice of the string from -8 position to the -3 position conting form the first position of the end of the string 
-
-print(astring[1:9:1]) # prints slice of the string as same does by "astring[1:9]", since [1:9:1]- denotes [start:end:step] and the step (:1) is like zero step 
+print()
+print(astring[1:9:1]) # prints slice of the string as same does by "astring[1:9]", since [1:9:1]- denotes [start:stop/end:step] and the step (:1) is like zero step 
 print(astring[1:9:2]) # prints slice of the string by skipping one character from the starting position i.e 1th index
-
+print()
 # Reversing the string like this
 print(astring[::-1])  # prints the reverse of the string without skipping the character 
 print(astring[::-2])  # prints the reverse slice of the string by skipping the one character 
-
+print()
 # Converting the string into Lower and Upper Case
 str1 = "I LoVe BuTwaL"
 print(str1.upper())
 print(str1.lower())
 
+print()
 
 print(str1.startswith("end"))
 print(str1.endswith("butwal"))
+
+print(str1.split(" "))
 
