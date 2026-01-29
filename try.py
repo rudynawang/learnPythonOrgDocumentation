@@ -161,6 +161,11 @@ data = {"name": "John", "age": 30}
 "john" in ["John", "Rick"]  # False
 
 # Using a set instead of a list is faster for large collections:
+name= "John"
 if name in {"John", "Rick"}:
-    
+    print("Good")
+
+primes =[2,3,5,7]
+for index,prime in enumerate(primes):
+    print(index,prime)
 
