@@ -34,4 +34,48 @@ while count<7:
     print(count)
     count+=1
 
+print()
+
+# Break and Continue Statement
+# Break:
+count = 0
+while(1):
+    print(count)
+    count+=1
+    if count>=5:
+        break
     
+print()
+# Continue:
+for x in range(11):
+    if x%2==0:
+        continue
+    print(x)
+
+print()
+
+# We can use "else" part in the loops.
+# In While Loop
+count = 0
+while count<5:
+    print(count)
+    count+=1
+else:
+    print("count value reached %d" %count)
+
+print()
+
+# In For Loop
+
+for i in range(1,10):
+    if(i%5==0):
+        continue
+    print(i)
+else:
+    print("this is not printed because for " \
+    "loop is terminated because of " \
+    "break but not due to fail in condition")
+
+
+
+
