@@ -73,3 +73,18 @@ secondobject = Myclass()
 firstobject.varA = "New String created"
 print(firstobject.varA)
 secondobject.firstclass()
+print()
+
+
+#7. "init()" function is a special function that is called (while creating the object of the class / when the class is being initiated.
+#    it is used for assigning the values class.
+
+class NumberHolder:
+    def __init__(self, number):
+        self.number = number
+
+    def returnNumber(self):
+        return self.number
+    
+obj = NumberHolder(5)
+print(obj.returnNumber())
