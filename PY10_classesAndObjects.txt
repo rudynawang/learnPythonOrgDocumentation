@@ -1,0 +1,87 @@
+The __init__() function, is a special function that is called when the class is being initiated. It's used for assigning values in a class.
+class NumberHolder:
+    def __init__(self, number): 
+      self.number = number
+
+    def returnNumber(self):
+       return self.number  
+
+var = NumberHolder(7)
+print(var.returnNumber()) #Prints '7'
+
+
+
+1). What is __init__?
+
+__init__ is a special method (often called a constructor).
+Python automatically calls it when you create a new object from a class.
+
+    var = NumberHolder(7)
+
+is what triggers __init__.
+
+2). What does self mean?
+
+self refers to the specific object being created.
+
+When Python runs:
+
+    NumberHolder(7)
+
+it internally does something like:
+
+    __init__(self=var, number=7)
+
+So:
+
+@ self → the new NumberHolder object (var)
+
+@ number → the argument 7
+
+3). What does self.number = number do?
+
+This line:
+  
+    self.number = number
+
+means:
+
+“Store the value 7 inside this object under the name number.”
+
+After __init__ runs, the object looks like this:
+
+    var.number == 7
+
+So number becomes an instance variable (data that belongs to that object).
+
+
+4). What does returnNumber() do?
+
+    def returnNumber(self):
+    return self.number
+
+This method:
+
+@ accesses the object’s stored value (self.number)
+
+@ returns it
+
+When you call:
+
+    var.returnNumber()
+
+Python automatically passes var as self.
+
+So it returns:
+
+    7
+
+5). Why does it print 7?
+
+Putting it all together:
+
+    var = NumberHolder(7)      # creates object, stores 7 in var.number
+    print(var.returnNumber()) # returns var.number → 7
+
+That’s why the output is:
+     7

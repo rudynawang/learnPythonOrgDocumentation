@@ -69,7 +69,7 @@ print()
 
 for i in range(1,10):
     if(i%5==0):
-        continue
+        break
     print(i)
 else:
     print("this is not printed because for " \
