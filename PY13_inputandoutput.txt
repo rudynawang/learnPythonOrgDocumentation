@@ -1,8 +1,11 @@
+##1. 
 flo = float(input()) 
 print(flo) 
 but this line gives floating number if I entered integer number why 
 and why num = int(input()), this line does not give 
 the integer number if I entered the float number
+
+Answer:
 
 This is an excellent “why” question — you’re now thinking like a programmer 👏
 Let’s answer it cleanly and logically, no jargon overload.
@@ -118,3 +121,179 @@ how computers store floats internally
 why 55 == 55.0 is True
 
 or how to safely accept either int or float from the user
+
+
+
+##2. 
+how to take two two or more data types 
+as input from a single line separated by 
+spaces? 
+Here we make use split() and map() functions 
+#give two integers in first line and more than 
+two integers in third line 
+what the above text trying to explaining and 
+Is the below code is in correct form? 
+if yes then explain clearly if not in correct form 
+then explain in correct form. 
+a, b = map(int, input().split()) 
+array = input().split() 
+sum = 0 
+for each in array: 
+sum = sum + int(each) 
+print(a, b, sum) 
+# prints first two integers from first line and 
+sum of integers of second line
+
+Answer:
+
+Great question — this is exactly the point where input handling really clicks 👍
+Let’s decode the text, then check your code, and finally explain it clearly.
+
+1️⃣ What the text is trying to say (in simple words)
+
+“how to take two or more data types as input from a single line separated by spaces?”
+
+Meaning:
+
+The user types multiple values in one line
+
+Values are separated by spaces
+
+We convert them into required data types
+
+Example input:
+
+10 20
+
+
+“Here we make use of split() and map() functions”
+
+Because:
+
+split() → breaks one string into pieces using spaces
+
+map() → converts each piece into a required data type (int, float, etc.)
+
+“give two integers in first line and more than two integers in third line”
+
+Meaning:
+
+Line 1 → exactly two integers
+
+Line 2 → many integers (unknown count)
+
+2️⃣ Is your code correct? ✅
+
+YES — your code is correct and works as expected.
+(Just one small improvement: don’t use sum as a variable name — it shadows Python’s built-in sum().)
+
+I’ll explain it line by line.
+
+3️⃣ Line-by-line explanation
+🔹 Line 1
+a, b = map(int, input().split())
+
+
+Suppose input is:
+
+3 5
+
+
+Steps:
+
+input() → "3 5"
+
+.split() → ["3", "5"]
+
+map(int, ...) → 3, 5
+
+Assigned to:
+
+a = 3
+b = 5
+
+
+✔️ Reads two integers from one line
+
+🔹 Line 2
+array = input().split()
+
+
+Suppose input is:
+
+1 2 3 4 5
+
+
+Steps:
+
+input() → "1 2 3 4 5"
+
+.split() → ["1", "2", "3", "4", "5"]
+
+✔️ Stores multiple numbers as strings
+
+🔹 Line 3–5 (loop)
+sum = 0
+for each in array:
+    sum = sum + int(each)
+
+
+Step-by-step:
+
+Convert each string to int
+
+Add it to sum
+
+Result:
+
+sum = 15
+
+🔹 Final print
+print(a, b, sum)
+
+
+Output:
+
+3 5 15
+
+4️⃣ Minor improvement (recommended)
+
+Avoid overriding Python’s built-in sum():
+
+Better version ✅
+a, b = map(int, input().split())
+array = map(int, input().split())
+
+total = 0
+for each in array:
+    total += each
+
+print(a, b, total)
+
+5️⃣ Even shorter & cleaner version ⭐
+a, b = map(int, input().split())
+total = sum(map(int, input().split()))
+print(a, b, total)
+
+6️⃣ One-line mental model 🧠
+
+input() → whole line as string
+
+split() → break by spaces
+
+map() → convert data type
+
+unpacking (a, b) → assign values
+
+Final exam-style answer ✍️
+
+Multiple values from a single line can be taken using split() and converted using map(). split() separates input based on spaces, and map() converts each value into the required data type.
+
+You’re doing really well — these questions show strong fundamentals 💪
+If you want next, I can explain:
+
+mixing int and float in the same line
+
+why unpacking fails sometimes
+
+how competitive programmers read input fast
