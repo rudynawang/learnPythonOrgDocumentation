@@ -38,5 +38,8 @@ str3 = str1 +" "+ str2
 print(str3)
 
 
-# Assignment can be done on mo
+# Assignment can be done on more than one variable "Simultaneously" on the same line
+a, b = 3, 5
+print(a, b)
+
 

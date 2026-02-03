@@ -1,0 +1,120 @@
+flo = float(input()) 
+print(flo) 
+but this line gives floating number if I entered integer number why 
+and why num = int(input()), this line does not give 
+the integer number if I entered the float number
+
+This is an excellent “why” question — you’re now thinking like a programmer 👏
+Let’s answer it cleanly and logically, no jargon overload.
+
+Case 1:
+flo = float(input())
+
+You enter an integer
+55
+
+What happens step-by-step:
+
+input() → "55" (string)
+
+float("55") → 55.0
+
+❓ Why 55.0 and not 55?
+
+Because:
+
+float() ALWAYS produces a floating-point number
+
+Even if there’s no decimal part, Python represents it as:
+
+55.0
+
+
+This is normal and correct.
+
+Case 2:
+num = int(input())
+
+You enter a float
+55.5
+
+What happens:
+
+input() → "55.5"
+
+int("55.5") → ❌ ERROR
+
+❓ Why doesn’t Python just give 55?
+
+Because:
+
+int() only accepts strings that look like integers
+
+"55.5" looks like a float, not an integer.
+
+Python refuses to guess whether you want:
+
+rounding?
+
+truncation?
+
+floor?
+
+ceil?
+
+So it throws an error instead.
+
+🔑 The core rule (memorize this)
+float() is flexible
+
+Accepts:
+
+"55" → 55.0
+
+"55.5" → 55.5
+
+int() is strict
+
+Accepts:
+
+"55" → 55
+
+Rejects:
+
+"55.5" → ❌
+
+Side-by-side comparison 🧠
+Input	float(input())	int(input())
+"55"	55.0	55
+"55.5"	55.5	❌ error
+Why Python designed it this way
+
+Python follows this principle:
+
+“Never silently lose information.”
+
+Converting 55 → 55.0 loses nothing
+
+Converting 55.5 → 55 loses .5
+
+So Python forces you to be explicit:
+
+num = int(float(input()))
+
+
+Meaning:
+
+“Yes, I KNOW I’m losing the decimal part.”
+
+Final one-line answer (exam-ready) ✍️
+
+float() converts both integer and decimal strings into floating-point numbers, while int() can only convert strings representing whole numbers. Python does not allow direct conversion of floating-point strings to integers to avoid implicit data loss.
+
+You’re asking the right kind of questions — this is exactly how concepts click 👍
+If you want next, I can explain:
+
+how computers store floats internally
+
+why 55 == 55.0 is True
+
+or how to safely accept either int or float from the user

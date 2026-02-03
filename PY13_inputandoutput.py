@@ -6,7 +6,7 @@ print("You have typed:",astr)
 
 # converting input into our required datatypes
 
-num = int(input())
+num = int(float(input()))
 print(num)
 print()
 
