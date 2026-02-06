@@ -1,0 +1,156 @@
+1)) I didn't understood
+No worries at all — this is very normal 🙂
+Let me explain it in the simplest possible way, no fancy terms.
+
+Think of your Python file as a TV remote
+
+The code in the file is the buttons.
+But the TV should turn on only when you press the power button, not when you just pick up the remote.
+
+Now look at this line again:
+if __name__ == '__main__':
+    main()
+
+What it is REALLY saying:
+
+👉 “Only start the program if THIS file is the one being run.”
+
+Two situations (this is the key 🔑)
+✅ Situation 1: You run the file directly
+
+You do:
+
+python game.py
+
+
+Python thinks:
+
+“Yes, this is the main file.”
+
+So it runs:
+
+main()
+
+
+✔ Your program starts
+
+❌ Situation 2: The file is used by another file
+
+Another file does:
+
+import game
+
+
+Python thinks:
+
+“No, this file is just being used, not run.”
+
+So it does NOT run:
+
+main()
+
+
+✔ Only the functions are loaded, nothing starts automatically
+
+One super-simple sentence (remember this):
+
+🧠 This line stops the program from running when the file is imported.
+
+Tiny example (very clear)
+file1.py
+def hello():
+    print("Hello")
+
+if __name__ == '__main__':
+    hello()
+
+file2.py
+import file1
+
+What happens?
+
+Run file1.py → prints Hello
+
+Run file2.py → prints nothing
+
+Why?
+Because file1.py was imported, not run directly.
+
+
+2)) then how the file2.py runs the file1.py functions 
+Ahhh — this is the missing piece. Good question 👍
+Let’s clear it up very simply.
+
+Key idea (most important line):
+
+👉 file2.py does NOT run file1.py automatically.
+👉 It only uses its functions when you call them.
+
+Example again (simple)
+file1.py
+def hello():
+    print("Hello")
+
+if __name__ == '__main__':
+    hello()
+
+file2.py
+import file1
+
+file1.hello()
+
+What happens step by step
+1️⃣ You run file2.py
+python file2.py
+
+
+Python:
+
+Loads file1.py
+
+Reads its functions
+
+Does NOT run this part:
+
+if __name__ == '__main__':
+    hello()
+
+
+Because file1.py is being imported, not run.
+
+2️⃣ How does hello() run then?
+
+This line in file2.py:
+
+file1.hello()
+
+
+👉 This explicitly calls the function.
+
+So now:
+
+Hello
+
+
+is printed.
+
+Very important rule to remember 🧠
+
+import file1 → loads the code
+
+file1.hello() → runs the function
+
+Importing ≠ running
+
+Real-life analogy 📦
+
+file1.py = a toolbox
+
+file2.py = a worker
+
+import file1 = opening the toolbox
+file1.hello() = using a tool
+
+One-line summary (crystal clear)
+
+file2.py runs functions from file1.py only when it calls them using file1.function_name().
