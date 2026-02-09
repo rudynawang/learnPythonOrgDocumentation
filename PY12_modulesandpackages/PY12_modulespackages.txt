@@ -1,4 +1,6 @@
-1)) I didn't understood
+1)) Writing Modules
+
+I didn't understood
 No worries at all — this is very normal 🙂
 Let me explain it in the simplest possible way, no fancy terms.
 
@@ -156,7 +158,9 @@ One-line summary (crystal clear)
 file2.py runs functions from file1.py only when it calls them using file1.function_name().
 
 
-3.))  main script's namespace means
+3.))  Importing module objects to the current namespace
+
+main script's namespace means
 
 First: what is a namespace?
 
@@ -247,7 +251,9 @@ One-line summary (remember this)
 🧠 The main script’s namespace is the set of names you can use directly in the file that is being run.
 
 
-3)) Module initialization The first time a module is loaded into a 
+4)) Module Initialization :
+
+Module initialization The first time a module is loaded into a 
 running Python script, it is initialized by executing the code in the 
 module once. If another module in your code imports the same module 
 again, it will not be loaded again, so local variables inside the 
@@ -270,3 +276,87 @@ class Screen():
 
 # initialize main_screen as a singleton
 main_screen = Screen()
+
+
+
+Sure 🙂 Let’s complete the example in a clear, runnable way to show how module initialization works like a singleton in Python.
+
+draw.py
+
+This module creates main_screen once, when it is first imported.
+
+# draw.py
+
+class Screen:
+    def __init__(self):
+        print("Screen initialized")
+
+    def clear(self):
+        print("Screen cleared")
+
+    def draw(self):
+        print("Drawing game objects")
+
+
+def clear_screen(screen):
+    screen.clear()
+
+
+def draw_game():
+    # uses the singleton screen created at import time
+    clear_screen(main_screen)
+    main_screen.draw()
+
+
+# initialize main_screen as a singleton
+main_screen = Screen()
+
+game.py
+
+This module imports draw.
+Even if draw is imported multiple times, main_screen is created only once.
+
+# game.py
+
+import draw
+
+def main():
+    draw.draw_game()
+    draw.draw_game()
+
+
+if __name__ == "__main__":
+    main()
+
+Output
+Screen initialized
+Screen cleared
+Drawing game objects
+Screen cleared
+Drawing game objects
+
+
+👉 Notice:
+
+“Screen initialized” prints only once
+
+main_screen behaves like a singleton
+
+All functions in draw.py share the same main_screen
+
+Why this works
+
+Python executes a module only the first time it is imported
+
+The module object is cached in sys.modules
+
+Variables at module level (like main_screen) persist for the program’s lifetime
+
+Bonus: proving it’s the same object
+
+Add this inside draw_game():
+
+print(id(main_screen))
+
+
+You’ll see the same ID every time, confirming it’s the same instance.
