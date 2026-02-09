@@ -154,3 +154,119 @@ file1.hello() = using a tool
 One-line summary (crystal clear)
 
 file2.py runs functions from file1.py only when it calls them using file1.function_name().
+
+
+3.))  main script's namespace means
+
+First: what is a namespace?
+
+A namespace is simply:
+
+👉 a place where names are stored and looked up
+
+Names like:
+
+variables
+
+functions
+
+classes
+
+imported objects
+
+Think of it as a dictionary of names → objects.
+
+
+What is the main script?
+
+The main script is:
+👉 the Python file you are running directly
+
+Example:
+python game.py
+
+Here, game.py is the main script.
+
+So what does “main script’s namespace” mean?
+
+It means:
+
+👉 all the names that are directly available inside the file you are running
+
+Example without import
+game.py
+x = 10
+
+def hello():
+    print("Hi")
+
+
+Here, the main script’s namespace contains:
+
+x
+
+hello
+
+You can use them directly:
+hello()
+print(x)
+
+Example with module import
+draw.py 
+def draw_game():
+    print("Drawing game")
+
+
+game.py
+from draw import draw_game
+
+Now the main script’s namespace contains:
+
+draw_game
+
+So you can write:
+draw_game()
+
+You do not need:
+draw.draw_game()
+
+Because draw_game is already in the main script’s namespace.
+
+Compare with this import
+import draw
+
+Now the main script’s namespace contains:
+
+draw
+
+So you must write:
+draw.draw_game()
+
+One-line summary (remember this)
+
+🧠 The main script’s namespace is the set of names you can use directly in the file that is being run.
+
+
+3)) Module initialization The first time a module is loaded into a 
+running Python script, it is initialized by executing the code in the 
+module once. If another module in your code imports the same module 
+again, it will not be loaded again, so local variables inside the 
+module act as a "singleton," meaning they are initialized only once.
+
+You can then use this to initialize objects. For example:
+
+# draw.py
+
+def draw_game():
+    # when clearing the screen we can use the main screen object initialized in this module
+    clear_screen(main_screen)
+    ...
+
+def clear_screen(screen):
+    ...
+
+class Screen():
+    ...
+
+# initialize main_screen as a singleton
+main_screen = Screen()
