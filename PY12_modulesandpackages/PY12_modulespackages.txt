@@ -360,3 +360,65 @@ print(id(main_screen))
 
 
 You’ll see the same ID every time, confirming it’s the same instance.
+
+
+
+5)) Extending module load path
+
+There are a couple of ways to tell the 
+Python interpreter where to look for modules, 
+aside from the default local directory and 
+built-in modules. You can use the environment 
+variable PYTHONPATH to specify additional 
+directories to look for modules like this:
+
+PYTHONPATH=/foo python game.py
+
+This executes game.py, and enables the script
+ to load modules from the foo directory, 
+ as well as the local directory.
+
+
+ Sure — here’s a clearer, simpler explanation 👇
+
+By default, Python looks for modules in:
+
+The current directory (where your script is)
+
+The built-in Python modules
+
+A few standard library directories
+
+If your module is somewhere else, you can tell Python where to look using the PYTHONPATH environment variable.
+
+What PYTHONPATH does
+
+PYTHONPATH is a list of extra directories that Python will search before running your program.
+
+Example
+PYTHONPATH=/foo python game.py
+
+
+This command means:
+
+Temporarily add the directory /foo to Python’s module search path
+
+Run game.py
+
+Allow game.py to import modules that are located in /foo, in addition to:
+
+the current directory
+
+built-in and standard library modules
+
+In plain English
+
+“Run game.py, and while doing so, also look in /foo for any modules I try to import.”
+
+Important notes
+
+This setting only applies to that single command
+
+It does not permanently change your system
+
+Useful for testing, projects with custom libraries, or multiple module locations
