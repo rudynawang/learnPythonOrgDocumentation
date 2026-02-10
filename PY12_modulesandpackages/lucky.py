@@ -1,4 +1,4 @@
-from unlucky import unlucky_game
+from PY12_modulesandpackages.unlucky import unlucky_game
 
 def play_game():
     return "Game started"

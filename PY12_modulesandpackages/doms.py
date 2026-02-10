@@ -1,4 +1,4 @@
-import topi
+import PY12_modulesandpackages.topi as topi
 print(topi.__file__)
 
 def play_game():
