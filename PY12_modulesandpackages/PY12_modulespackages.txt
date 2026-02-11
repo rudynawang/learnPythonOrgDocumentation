@@ -422,3 +422,96 @@ This setting only applies to that single command
 It does not permanently change your system
 
 Useful for testing, projects with custom libraries, or multiple module locations
+
+
+
+6)) Exploring built-in modules
+
+To import the module urllib, which enables 
+us to create read data from URLs, we import 
+the module:
+
+# import the library
+import urllib
+
+# use it
+urllib.urlopen(...)
+
+Great question 👍 Let’s break this down clearly.
+
+1️⃣ Importing the module
+import urllib
+
+
+This line tells Python:
+
+“Load the urllib library so I can use its tools in my program.”
+
+urllib is a built-in Python module used to work with URLs (web addresses). It allows you to:
+
+Open web pages
+
+Download data
+
+Send requests to websites
+
+Handle URL encoding
+
+2️⃣ Using it
+urllib.urlopen(...)
+
+
+This line attempts to open a URL (like a website link) and read data from it.
+
+However ⚠️ Important:
+
+In Python 3, this no longer works exactly like this.
+
+In Python 3, urlopen() is inside urllib.request.
+
+So the correct way is:
+
+import urllib.request
+
+response = urllib.request.urlopen("https://example.com")
+data = response.read()
+
+print(data)
+
+🔎 What Happens Step by Step
+response = urllib.request.urlopen("https://example.com")
+
+
+Connects to the website
+
+Sends a request
+
+Returns a response object
+
+data = response.read()
+
+
+Reads the content of the webpage
+
+Returns it as bytes
+
+🧠 Simple Explanation
+
+Think of it like this:
+
+import urllib → “Bring me the internet tools.”
+
+urlopen("https://example.com") → “Go to this website.”
+
+.read() → “Bring back the page content.”
+
+⚠️ If You’re Using Python 2
+
+Then this works:
+
+import urllib
+response = urllib.urlopen("https://example.com")
+data = response.read()
+
+
+But Python 2 is outdated and not recommended anymore.
